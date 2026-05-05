@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDAT - Sesión 6: Hipervínculos e Imágenes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --idat-yellow: #FFC820;
+            --idat-dark: #1A1A1A;
+            --idat-gray: #F4F4F4;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--idat-gray);
+            color: var(--idat-dark);
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1, h2, .font-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            padding: 4rem;
+            box-sizing: border-box;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .idat-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 3rem;
+            max-width: 1000px;
+            width: 100%;
+            border-left: 8px solid var(--idat-yellow);
+        }
+
+        .code-snippet {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: left;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .tag { color: #ff79c6; }
+        .attr { color: #50fa7b; }
+        .val { color: #f1fa8c; }
+
+        .btn-nav {
+            background: var(--idat-dark);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-nav:hover {
+            background: var(--idat-yellow);
+            color: var(--idat-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-nav:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 6px;
+            background: var(--idat-yellow);
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Diapositiva 1: Portada -->
+    <div class="slide active bg-[#1A1A1A] text-white">
+        <h1 class="text-6xl font-black mb-4">SESIÓN 06</h1>
+        <h2 class="text-4xl text-[#FFC820] mb-8 font-bold">Hipervínculos e Imágenes</h2>
+        <p class="text-xl opacity-80">Diseño y Desarrollo Web</p>
+        <div class="mt-12 flex items-center gap-4">
+            <div class="w-12 h-1 bg-[#FFC820]"></div>
+            <p class="font-bold">Ciclo I</p>
+        </div>
+    </div>
+
+    <!-- Diapositiva 2: Agenda -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">Agenda de la Sesión</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <span class="bg-[#FFC820] text-black w-8 h-8 flex items-center justify-center rounded-full font-bold">1</span>
+                        <span>Conceptos de Hipervínculos</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-[#FFC820] text-black w-8 h-8 flex items-center justify-center rounded-full font-bold">2</span>
+                        <span>Anatomía de la etiqueta &lt;a&gt;</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-[#FFC820] text-black w-8 h-8 flex items-center justify-center rounded-full font-bold">3</span>
+                        <span>Inserción de Imágenes &lt;img&gt;</span>
+                    </li>
+                </ul>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3">
+                        <span class="bg-[#FFC820] text-black w-8 h-8 flex items-center justify-center rounded-full font-bold">4</span>
+                        <span>Atributos de Imagen (src, alt)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-[#FFC820] text-black w-8 h-8 flex items-center justify-center rounded-full font-bold">5</span>
+                        <span>Menús de Navegación Semánticos</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="bg-[#FFC820] text-black w-8 h-8 flex items-center justify-center rounded-full font-bold">6</span>
+                        <span>Práctica Guiada</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 3: ¿Qué es un Hipervínculo? -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">¿Qué es un Hipervínculo?</h2>
+            <p class="text-lg mb-4">Es el elemento fundamental de la Web (la "H" en HTML: HyperText). Permite conectar una página con otra o con recursos externos.</p>
+            <div class="grid grid-cols-2 gap-8 mt-8">
+                <div class="bg-yellow-50 p-6 rounded-xl">
+                    <h3 class="font-bold mb-2">Propósito</h3>
+                    <p>Navegar entre documentos y crear una experiencia conectada.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="font-bold mb-2">Interactividad</h3>
+                    <p>Transforma un texto o imagen estática en un punto de acción.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 4: Anatomía de <a> -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">Anatomía de la etiqueta &lt;a&gt;</h2>
+            <p class="mb-4">Se compone principalmente del atributo <span class="font-bold">href</span> (Hypertext Reference).</p>
+            
+            <div class="code-snippet">
+                <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://idat.edu.pe"</span> <span class="attr">target</span>=<span class="val">"_blank"</span><span class="tag">&gt;</span><br>
+                &nbsp;&nbsp;Visitar sitio oficial<br>
+                <span class="tag">&lt;/a&gt;</span>
+            </div>
+
+            <ul class="space-y-3 mt-6 text-left">
+                <li>🔹 <span class="font-bold">href:</span> URL o ruta del destino del enlace.</li>
+                <li>🔹 <span class="font-bold">target:</span> Define dónde se abre (<em>_blank</em> para nueva pestaña).</li>
+                <li>🔹 <span class="font-bold">title:</span> Información adicional al pasar el mouse.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Diapositiva 5: ¿Qué es un <img>? -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">¿Qué es un &lt;img&gt;?</h2>
+            <p class="text-lg mb-4">Es la etiqueta utilizada para incrustar imágenes en un documento HTML. A diferencia de otras etiquetas, es un <strong>elemento vacío</strong> (no tiene etiqueta de cierre).</p>
+            <div class="grid grid-cols-2 gap-8 mt-8">
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <h3 class="font-bold mb-2">Visualización</h3>
+                    <p>Permite mostrar formatos como JPG, PNG, GIF, SVG y WebP.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-xl">
+                    <h3 class="font-bold mb-2">Naturaleza</h3>
+                    <p>Es un elemento de línea por defecto, pero se comporta como bloque reemplazado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 6: Anatomía de <img> -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">Anatomía de la etiqueta &lt;img&gt;</h2>
+            <p class="mb-4">Requiere obligatoriamente dos atributos para ser accesible y funcional:</p>
+            
+            <div class="code-snippet">
+                <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"logo-idat.png"</span> <span class="attr">alt</span>=<span class="val">"Logotipo de IDAT"</span> <span class="attr">width</span>=<span class="val">"200"</span><span class="tag">&gt;</span>
+            </div>
+
+            <ul class="space-y-3 mt-6 text-left">
+                <li>🔹 <span class="font-bold">src (Source):</span> La ruta o URL de la imagen que queremos mostrar.</li>
+                <li>🔹 <span class="font-bold">alt (Alternative text):</span> Descripción textual para lectores de pantalla o si la imagen falla.</li>
+                <li>🔹 <span class="font-bold">width / height:</span> Atributos opcionales para definir dimensiones (en píxeles).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Diapositiva 7: Tipos de Enlaces -->
+    <div class="slide">
+        <div class="idat-card text-left">
+            <h2 class="text-3xl font-bold mb-6">Tipos de Enlaces</h2>
+            <div class="space-y-6">
+                <div class="border-b pb-4">
+                    <h3 class="font-bold text-blue-600 italic">Enlaces Externos</h3>
+                    <p>Apuntan a dominios fuera de tu sitio. Siempre usa URLs absolutas (con http://).</p>
+                </div>
+                <div class="border-b pb-4">
+                    <h3 class="font-bold text-green-600 italic">Enlaces Internos</h3>
+                    <p>Navegan entre páginas del mismo proyecto (ej. contacto.html).</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-orange-600 italic">Anclas (Bookmarks)</h3>
+                    <p>Saltan a una sección específica de la misma página usando el ID del elemento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 8: Protocolos Especiales -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">Protocolos Especiales</h2>
+            <p class="mb-6">Podemos disparar acciones del sistema directamente desde el navegador:</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <p class="font-mono text-sm mb-2">Correo electrónico:</p>
+                    <code class="text-pink-600">href="mailto:soporte@idat.pe"</code>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <p class="font-mono text-sm mb-2">Llamada telefónica:</p>
+                    <code class="text-pink-600">href="tel:+51999888777"</code>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <p class="font-mono text-sm mb-2">Mensaje WhatsApp:</p>
+                    <code class="text-pink-600">href="https://wa.me/número"</code>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-lg">
+                    <p class="font-mono text-sm mb-2">Descarga de archivo:</p>
+                    <code class="text-pink-600">&lt;a href="..." download&gt;</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 9: Estructura de Navegación -->
+    <div class="slide">
+        <div class="idat-card">
+            <h2 class="text-3xl font-bold mb-6">Estructura Semántica de Menú</h2>
+            <p class="mb-4">Para la accesibilidad y SEO, los menús de navegación deben ir dentro de la etiqueta <span class="font-bold">&lt;nav&gt;</span>.</p>
+            
+            <div class="code-snippet">
+                <span class="tag">&lt;nav&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;ul&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"index.html"</span><span class="tag">&gt;</span>Inicio<span class="tag">&lt;/a&gt;&lt;/li&gt;</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li&gt;&lt;a</span> <span class="attr">href</span>=<span class="val">"servicios.html"</span><span class="tag">&gt;</span>Servicios<span class="tag">&lt;/a&gt;&lt;/li&gt;</span><br>
+                &nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span><br>
+                <span class="tag">&lt;/nav&gt;</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diapositiva 10: Cierre -->
+    <div class="slide bg-[#FFC820]">
+        <h2 class="text-5xl font-black mb-4">¿Preguntas?</h2>
+        <p class="text-2xl mb-8">Es hora de practicar creando tu primer menú con imágenes.</p>
+        <div class="bg-black text-white p-6 rounded-2xl">
+            <p class="font-bold">Tarea del día:</p>
+            <p>Crea un menú que incluya el logo de tu proyecto (usando &lt;img&gt;) y enlaces a 3 secciones distintas.</p>
+        </div>
+        <p class="mt-12 font-bold opacity-60">Diseñador de Presentaciones IDAT © 2024</p>
+    </div>
+
+    <!-- Controles -->
+    <div class="fixed bottom-8 right-8 flex gap-4 z-50">
+        <button id="prevBtn" class="btn-nav" onclick="moveSlide(-1)" disabled>Anterior</button>
+        <button id="nextBtn" class="btn-nav" onclick="moveSlide(1)">Siguiente</button>
+    </div>
+
+    <div id="progressBar" class="progress-bar" style="width: 10%;"></div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        function moveSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide += direction;
+            slides[currentSlide].classList.add('active');
+
+            // Actualizar botones
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+
+            // Actualizar Progreso
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = progress + '%';
+        }
+
+        // Navegación por teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+                moveSlide(1);
+            } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                moveSlide(-1);
+            }
+        });
+    </script>
+</body>
+</html>
